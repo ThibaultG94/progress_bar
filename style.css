@@ -9,6 +9,8 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
 .container {
@@ -63,11 +65,8 @@ body {
   height: 100%;
   transform-origin: 0% 50%;
   transform: scaleX(0);
-  opacity: 0;
-  -webkit-animation: progress-bar 3000ms;
-          animation: progress-bar 3000ms;
-  -webkit-animation-delay: 1000ms;
-          animation-delay: 1000ms;
+  -webkit-animation: progress-bar 3000ms 1150ms both cubic-bezier(0.9, 0, 0.1, 1);
+          animation: progress-bar 3000ms 1150ms both cubic-bezier(0.9, 0, 0.1, 1);
 }
 
 @-webkit-keyframes progress-bar {
@@ -79,12 +78,13 @@ body {
   }
   24% {
     transform: scaleX(0.4);
+    -webkit-animation-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
+            animation-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
   }
   46% {
     transform: scaleX(0.81);
-  }
-  85%, 100% {
-    opacity: 1;
+    -webkit-animation-timing-function: cubic-bezier(0.25, 0.25, 1);
+            animation-timing-function: cubic-bezier(0.25, 0.25, 1);
   }
   100% {
     transform: scaleX(1);
@@ -100,14 +100,55 @@ body {
   }
   24% {
     transform: scaleX(0.4);
+    -webkit-animation-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
+            animation-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
   }
   46% {
     transform: scaleX(0.81);
-  }
-  85%, 100% {
-    opacity: 1;
+    -webkit-animation-timing-function: cubic-bezier(0.25, 0.25, 1);
+            animation-timing-function: cubic-bezier(0.25, 0.25, 1);
   }
   100% {
     transform: scaleX(1);
+  }
+}
+.cat {
+  width: 90vw;
+  height: 90vh;
+  position: absolute;
+  overflow: hidden;
+  background-image: url("./IMG_20200922_113057.jpg");
+  background-size: cover;
+  background-position: -20%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.1rem;
+  font-size: 4vw;
+  font-weight: 900;
+  color: white;
+  top: -410px;
+  left: -555px;
+  -webkit-animation: salem 500ms 4100ms both;
+          animation: salem 500ms 4100ms both;
+}
+
+@-webkit-keyframes salem {
+  0% {
+    transform: translateX(-9999px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes salem {
+  0% {
+    transform: translateX(-9999px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }/*# sourceMappingURL=style.css.map */
